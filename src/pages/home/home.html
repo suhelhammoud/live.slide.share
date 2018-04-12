@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Join Presentation
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label stacked>Set Username</ion-label>
+    <ion-input type="text" [(ngModel)]="username" placeholder="UserName"></ion-input>
+  </ion-item>
+  <button ion-button full (click)="joinPresentaion()" [disabled]="username === '' ">Join Presentation as {{ username }}</button>
+</ion-content>
