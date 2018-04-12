@@ -44,18 +44,18 @@ Then open [http://localhost:8100](http://localhost:8100)
 #### Using the app:
 * Join with your nickname:
 ![join ](docs/images/home.png)
-![presentation room ](docs/images/join.png)
+![presentation room ](docs/images/join.png | width=300)
 
 * Set json configuration file in the presentation page
-![set presentation ](docs/images/home.png)
+![set presentation ](docs/images/home.png | width=300)
 
 * All users are synchronized to the same slide
-![switch slides ](docs/images/sync_slides1.png)
-![switch slides ](docs/images/sync_slides2.png)
-![switch slides ](docs/images/sync_slides3.png)
+![switch slides ](docs/images/sync_slides1.png | width=450)
+![switch slides ](docs/images/sync_slides2.png| width=450)
+![switch slides ](docs/images/sync_slides3.png| width=450)
 
 * Nofifications of joinings and leaving users
 
-![Notification ](docs/images/join_adam_running.png)
+![Notification ](docs/images/join_adam_running.png | width=300)
 
 
