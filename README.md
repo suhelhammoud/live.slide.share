@@ -55,6 +55,7 @@ Then open [http://localhost:8100](http://localhost:8100)
 ![switch slides ](docs/images/sync_slides3.png)
 
 * Nofifications of joinings and leaving users
+
 ![Notification ](docs/images/join_adam_running.png)
 
 
