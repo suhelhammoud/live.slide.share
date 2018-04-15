@@ -15,7 +15,7 @@ To install and to run in development mode:
 ```bash
 cd server
 npm install
-npm dev
+npm run dev
 ``` 
 
 #### Client Side
