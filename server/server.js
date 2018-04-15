@@ -17,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 const presentation = {
   username: 'suhel',
   url: 'http://localhost:3001/seminars/default',
-  size: 3,
+  size: 1,
   num: 1,
   event: 'first'
 };
