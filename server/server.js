@@ -1,17 +1,15 @@
 const request = require('request');
-
 const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io').listen(server);
-
 const port = 3001;
+
+app.use(express.static(__dirname + '/public'));
 server.listen(process.env.PORT || port);
 
 console.log(`Server running on port: ${port} ...`);
-
-app.use(express.static(__dirname + '/public'));
 
 //sample presentation
 const presentation = {
@@ -24,18 +22,6 @@ const presentation = {
 
 //list of current joined users
 users = [];
-
-function emitPresentation(p){
-  io.emit('presentation',
-    {
-      username: p.username,
-      url: p.url,
-      size: p.size,
-      num: p.num,
-      event: p.event
-    }
-  )
-}
 
 io.on('connection', (socket) => {
 
@@ -69,7 +55,7 @@ io.on('connection', (socket) => {
   socket.on('which-presentation', () => {
     console.log('which presentation from ' + socket.username);
     console.log(JSON.stringify(presentation))
-    emitPresentation(presentation);
+    io.emit('presentation', presentation);
   });
 
 
@@ -84,14 +70,9 @@ io.on('connection', (socket) => {
         console.error(error);
         return;
       };
-      presentation.username = body.username;
-      presentation.url = body.url;
-      presentation.size = body.size;
-      presentation.num = body.num;
-      presentation.event = body.event;
-
+      Object.assign(presentation, body);
       console.log(presentation);
-      emitPresentation(presentation);
+      io.emit('presentation', presentation)
     })
   });
 
@@ -115,8 +96,9 @@ io.on('connection', (socket) => {
       if (presentation.num <= 1) return
       presentation.num = 1;
     }
-    emitPresentation(presentation)
+    io.emit('presentation', presentation)
   });
 
 });
+
 

@@ -26,7 +26,6 @@ export class PresentationRoomPage {
 
   idle = true;
   username = '';
-
   presentation: IPresentation = { username: '', url: '', size: 1, num: 1, event: 'first' };
 
   configUrl = 'http://localhost:3001/seminars/1/config.json'
@@ -90,6 +89,8 @@ export class PresentationRoomPage {
   }
 
   isFreePresentation() {
+    //TODO bad code here, use user authentication instead !
+    // return [undefined, '', this.username].some( i => i === this.presentation.username)
     return this.idle;
   }
 
@@ -171,6 +172,3 @@ export class PresentationRoomPage {
     toast.present();
   }
 }
-
-
-
